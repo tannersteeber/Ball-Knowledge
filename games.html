@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Games — Ball Knowledge</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a href="index.html" class="logo">Ball <span>Knowledge</span></a>
+    <nav id="main-nav"></nav>
+  </header>
+
+  <main class="container">
+    <div class="card">
+      <h2>Games</h2>
+      <div class="form-row" style="margin-bottom:16px">
+        <input id="filter-league" placeholder="Filter by league…" />
+        <select id="filter-status">
+          <option value="">All statuses</option>
+          <option value="scheduled">Scheduled</option>
+          <option value="final">Final</option>
+        </select>
+      </div>
+      <ul id="games-list" class="list"></ul>
+    </div>
+  </main>
+
+  <!-- Game Detail / Prediction Modal -->
+  <div id="game-modal" class="modal hidden">
+    <div class="modal-body">
+      <button id="close-game-modal" class="close">&times;</button>
+      <h3 id="game-title">Game</h3>
+      <div id="game-details" style="margin-bottom:16px"></div>
+      <form id="predict-form">
+        <div class="predict-options">
+          <label><input type="radio" name="outcome" value="home" /><span>Home</span></label>
+          <label><input type="radio" name="outcome" value="away" /><span>Away</span></label>
+        </div>
+        <div class="predict-actions">
+          <button type="submit" class="btn btn-primary">Submit Prediction</button>
+        </div>
+      </form>
+      <div id="predict-note" class="note"></div>
+    </div>
+  </div>
+
+  <script src="js/shared.js"></script>
+  <script src="js/games.js"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin Login — Ball Knowledge</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a href="index.html" class="logo">Ball <span>Knowledge</span></a>
+    <nav id="main-nav"></nav>
+  </header>
+
+  <div class="auth-page">
+    <div class="auth-card">
+      <h2>🔒 Admin Login</h2>
+      <div id="admin-alert"></div>
+      <form id="admin-login-form">
+        <div class="form-group">
+          <label for="admin-user">Admin Username</label>
+          <input id="admin-user" placeholder="Admin username" required />
+        </div>
+        <div class="form-group">
+          <label for="admin-pass">Admin Password</label>
+          <input id="admin-pass" type="password" placeholder="Admin password" required />
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%">Login as Admin</button>
+      </form>
+      <div class="auth-footer">
+        <a href="login.html">Back to user login</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/shared.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      BK.renderNav('');
+
+      const admin = BK.loadAdmin();
+      if (BK.getCurrentAdmin(admin)) {
+        window.location.href = 'admin.html';
+        return;
+      }
+
+      const form = document.getElementById('admin-login-form');
+      const alertBox = document.getElementById('admin-alert');
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const username = document.getElementById('admin-user').value.trim();
+        const password = document.getElementById('admin-pass').value;
+        alertBox.innerHTML = '';
+
+        const freshAdmin = BK.loadAdmin();
+        const found = freshAdmin.admins.find(a => a.username === username && a.password === password);
+
+        if (!found) {
+          alertBox.innerHTML = '<div class="alert alert-danger">Invalid admin credentials.</div>';
+          return;
+        }
+
+        freshAdmin.currentAdminId = found.id;
+        BK.saveAdmin(freshAdmin);
+        window.location.href = 'admin.html';
+      });
+    });
+  </script>
+</body>
+</html>

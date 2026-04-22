@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Leaderboards — Ball Knowledge</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a href="index.html" class="logo">Ball <span>Knowledge</span></a>
+    <nav id="main-nav"></nav>
+  </header>
+
+  <main class="container">
+    <div class="card">
+      <h2>Leaderboards</h2>
+      <div class="lb-controls">
+        <button data-range="week" class="lb-range active">Weekly</button>
+        <button data-range="all" class="lb-range">All Time</button>
+      </div>
+      <ol id="leaderboard-list" class="list leaderboard"></ol>
+      <div id="your-rank" class="rank-display"></div>
+    </div>
+  </main>
+
+  <script src="js/shared.js"></script>
+  <script src="js/leaderboards.js"></script>
+</body>
+</html>

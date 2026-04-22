@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin Panel — Ball Knowledge</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a href="index.html" class="logo">Ball <span>Knowledge</span></a>
+    <nav id="main-nav">
+      <a href="admin.html" class="nav-link active">Admin Panel</a>
+      <button id="admin-logout">Logout Admin</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div id="admin-alert"></div>
+
+    <!-- Add Game -->
+    <div class="card admin-section">
+      <h2>➕ Add New Game</h2>
+      <form id="add-game-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="g-home">Home Team</label>
+            <input id="g-home" placeholder="e.g. Lions" required />
+          </div>
+          <div class="form-group">
+            <label for="g-away">Away Team</label>
+            <input id="g-away" placeholder="e.g. Tigers" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="g-league">League</label>
+            <input id="g-league" placeholder="e.g. College, Pro" required />
+          </div>
+          <div class="form-group">
+            <label for="g-time">Start Time</label>
+            <input id="g-time" type="datetime-local" required />
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Game</button>
+      </form>
+    </div>
+
+    <!-- Manage Games -->
+    <div class="card admin-section">
+      <h2>🎮 Manage Games</h2>
+      <table>
+        <thead>
+          <tr><th>Game</th><th>League</th><th>Start</th><th>Status</th><th>Actions</th></tr>
+        </thead>
+        <tbody id="games-table-body"></tbody>
+      </table>
+    </div>
+
+    <!-- Manage Users -->
+    <div class="card admin-section">
+      <h2>👥 Manage Users</h2>
+      <table>
+        <thead>
+          <tr><th>Username</th><th>Points</th><th>Predictions</th><th>Joined</th><th>Actions</th></tr>
+        </thead>
+        <tbody id="users-table-body"></tbody>
+      </table>
+    </div>
+
+    <!-- Data Controls -->
+    <div class="card admin-section">
+      <h2>⚙️ Data Controls</h2>
+      <p style="color:var(--muted);margin-bottom:12px">Danger zone — these actions cannot be undone.</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button id="btn-seed" class="btn btn-warning">Seed a Final Result (Demo)</button>
+        <button id="btn-rescore" class="btn btn-success">Re-run Scoring</button>
+        <button id="btn-reset" class="btn btn-danger">Reset All Data</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/shared.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

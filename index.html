@@ -4,82 +4,49 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Ball Knowledge</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
   <header class="topbar">
-    <h1>Ball Knowledge</h1>
-    <nav>
-      <button id="nav-games" class="nav-btn">Games</button>
-      <button id="nav-leaderboard" class="nav-btn">Leaderboards</button>
-      <button id="nav-profile" class="nav-btn">Profile</button>
-      <span id="auth-area"></span>
-    </nav>
+    <a href="index.html" class="logo">Ball <span>Knowledge</span></a>
+    <nav id="main-nav"></nav>
   </header>
 
   <main class="container">
-    <section id="games-section" class="page">
-      <h2>Upcoming Games</h2>
-      <div class="controls">
-        <input id="filter-league" placeholder="Filter by league" />
-        <button id="seed-results">(Demo) Seed Final Game</button>
+    <div class="hero">
+      <h2>Test Your <span>Ball Knowledge</span></h2>
+      <p>Predict game outcomes, earn points, and climb the leaderboard. Show the world you know ball.</p>
+      <div class="hero-actions">
+        <a href="games.html" class="btn btn-primary">View Games</a>
+        <a href="leaderboards.html" class="btn">Leaderboards</a>
       </div>
-      <ul id="games-list" class="list"></ul>
-    </section>
 
-    <section id="leaderboard-section" class="page hidden">
-      <h2>Leaderboards</h2>
-      <div class="lb-controls">
-        <button data-range="week" class="lb-range active">Weekly</button>
-        <button data-range="all" class="lb-range">All Time</button>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="icon">🏀</div>
+          <h3>Make Predictions</h3>
+          <p>Pick the winner for upcoming games before they start. Lock in your pick and prove your knowledge.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">🏆</div>
+          <h3>Earn Points</h3>
+          <p>Get 10 points for every correct prediction. The more you know, the higher you climb.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">📊</div>
+          <h3>Climb Leaderboards</h3>
+          <p>Compete against other fans on weekly and all-time leaderboards. Can you reach #1?</p>
+        </div>
       </div>
-      <ol id="leaderboard-list" class="list leaderboard"></ol>
-      <div id="your-rank"></div>
-    </section>
-
-    <section id="profile-section" class="page hidden">
-      <h2>Profile</h2>
-      <div id="profile-area"></div>
-    </section>
+    </div>
   </main>
 
-  <!-- Authentication modal -->
-  <div id="auth-modal" class="modal hidden">
-    <div class="modal-body">
-      <h3 id="auth-title">Login</h3>
-      <form id="auth-form">
-        <input id="username" placeholder="Username" required />
-        <input id="password" type="password" placeholder="Password" required />
-        <div class="auth-actions">
-          <button id="auth-submit">Submit</button>
-          <button id="auth-toggle" type="button">Switch to Register</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- Game detail / prediction modal -->
-  <div id="game-modal" class="modal hidden">
-    <div class="modal-body">
-      <button id="close-game-modal" class="close">×</button>
-      <h3 id="game-title">Game</h3>
-      <div id="game-details"></div>
-      <form id="predict-form">
-        <label>
-          <input type="radio" name="outcome" value="home" /> Home
-        </label>
-        <label>
-          <input type="radio" name="outcome" value="away" /> Away
-        </label>
-        <div class="predict-actions">
-          <button id="predict-submit">Submit Prediction</button>
-          <button id="predict-edit" type="button" class="hidden">Edit Prediction</button>
-        </div>
-      </form>
-      <div id="predict-note" class="note"></div>
-    </div>
-  </div>
-
-  <script src="js/app.js" defer></script>
+  <script src="js/shared.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      BK.runScoring(BK.loadState());
+      BK.renderNav('home');
+    });
+  </script>
 </body>
 </html>
