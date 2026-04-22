@@ -5,6 +5,7 @@ Ball Knowledge is a sports prediction platform where users vote on upcoming game
 ## Project Structure
 
 apps/client → Frontend 
+
 apps/local
 
 # Ball Knowledge — Static MVP
