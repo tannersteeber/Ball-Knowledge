@@ -4,8 +4,8 @@ Ball Knowledge is a sports prediction platform where users vote on upcoming game
 
 ## Project Structure
 
-apps/client → Frontend (web or mobile TBD)  
-apps/server → Backend API  
+apps/client → Frontend 
+apps/local
 # Ball Knowledge — Static MVP
 
 This repository now contains a static HTML/CSS/JS MVP implementation of the Ball Knowledge SRS. It's a self-contained frontend that demonstrates the core flows locally using browser storage:
